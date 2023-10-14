@@ -73,7 +73,23 @@ class ViewController: UICollectionViewController ,
             self?.collectionView.reloadData()
         })
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(ac, animated: true)
+        //present(ac, animated: true)
+        
+        let acFirst = UIAlertController(title: "Choose action", message: nil, preferredStyle: .alert)
+        acFirst.addAction(UIAlertAction(title: "Rename", style: .default){
+            [weak self] _ in
+            self?.present(ac, animated: true)
+        } )
+        
+        acFirst.addAction(UIAlertAction(title: "Delete", style: .default){
+            [weak self] _ in
+            self?.people.remove(at: indexPath.item)
+            self?.collectionView.reloadData()
+        })
+        
+        present(acFirst, animated: true)
+        
+        
     }
 }
 
