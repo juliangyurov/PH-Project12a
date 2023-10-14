@@ -37,10 +37,29 @@ class ViewController: UICollectionViewController ,
     }
     
     @objc func addNewPerson() {
+        let acChoice = UIAlertController(title: "Select image source", message: nil, preferredStyle: .alert)
+        acChoice.addAction(UIAlertAction(title: "Library", style: .default, handler: submitForLibrary))
+        acChoice.addAction(UIAlertAction(title: "Camera", style: .default, handler: submitForCamera))
+        present(acChoice, animated: true)
+    }
+    @objc func submitForLibrary(alertAction: UIAlertAction){
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
+    }
+    @objc func submitForCamera(alertAction: UIAlertAction){
+        if UIImagePickerController.isSourceTypeAvailable(.camera) == true{
+            let picker = UIImagePickerController()
+            picker.sourceType = .camera
+            picker.allowsEditing = true
+            picker.delegate = self
+            present(picker, animated: true)
+        }else{
+            let ac = UIAlertController(title: "Camera", message: "Camera not found.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Cancel", style: .default))
+            present(ac, animated: true)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
