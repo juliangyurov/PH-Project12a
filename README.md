@@ -7,11 +7,11 @@ Written by [Paul Hudson](https://www.hackingwithswift.com/about)  ![twitter16](h
 
 - Setting up
 
-- Reading and writing basics: UserDefaults
+- Reading and writing basics: `UserDefaults`
 
-- Fixing Project 10: NSCoding
+- Fixing Project 10: `NSCoding`
 
-- Fixing Project 10: Codable
+- Fixing Project 10: `Codable`
 
 - Wrap up
 
@@ -23,4 +23,4 @@ Written by [Paul Hudson](https://www.hackingwithswift.com/about)  ![twitter16](h
 
 2. Modify project 2 so that it saves the player’s highest score, and shows a special message if their new score beat the previous high score.
 
-3. Modify project 5 so that it saves the current word and all the player’s entries to UserDefaults, then loads them back when the app launches.
+3. Modify project 5 so that it saves the current word and all the player’s entries to `UserDefaults`, then loads them back when the app launches.
